@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /*height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(rgb(47,150,163), rgb(48,62,143));*/
+    background: black;
+    font-family: sans-serif;
+    color: white;
+    
+}
+
+.container{
+    display: flex;
+}
+
+.miniGrid{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 40px;
+    width: 80px;
+    height: 80px;
+    background-color: yellow;
+}
+
+.miniGrid div{
+    height: 20px;
+    width: 20px;
+}
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    height: 400px;
+    background-color: yellow;
+}
+
+.grid div{
+    height: 20px;
+    width: 20px;
+    
+}
+
+.tetro{
+    background-color: blue;
+}
+
+.weather{
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    max-height: 135px;
+    background-image: linear-gradient(rgb(47,150,163), rgb(48,62,143));
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-items: stretch;
+    
+
+}
+
+
+.icon{
+    
+    order:2;
+    height: 85px;
+    margin-top: 10px;
+    margin-right: 5px;
+
+}
+
+.location-timezone{
+    
+    
+    flex:70%;
+    height: 40px;
+    text-align: right;
+    order:1;
+    margin-top: 10px;
+    font-size: 28px;
+    font-style: italic;
+}
+
+
+
+
+.degree-section span{
+    margin-right: 10px;
+    
+    font-size: 30px;
+    
+    cursor: pointer;
+    
+}
+
+
+.degree-section{  
+    
+    
+    text-align: end;
+    height:40px;
+    order:4;
+    
+   
+    margin-right: 10px;
+
+}
+.degree-section h2{
+    display: inline-table;
+    cursor: pointer;
+    font-size: 38px;
+    
+}
+
+.temp-description{
+    
+    
+    order: 3;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 21px;
+    margin-right: 15px;
+    text-align: right;
+    font-style: italic;
+    flex:30%;
+    
+}
