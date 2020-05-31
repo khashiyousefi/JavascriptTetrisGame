@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //document.getElementsByClassName("taken").
        document.getElementsByClassName("grid")[0].appendChild(takenDiv);
     }
-var gameOver = false;
+//var gameOver = false;
 let nextRandom = 0;
 const height = 10;
 const grid = document.querySelector('.grid');
@@ -32,6 +32,7 @@ let squares = Array.from(document.querySelectorAll('.grid div'));
 let nextSquares = document.querySelectorAll('.miniGrid div')
 const startBtn = document.querySelector('#start-button');
 const scoreDisplay = document.querySelector('#score');
+let score = 0;
 const firstRow = [0,1,2,3,4,5,6,7,8,9];
 
 //The Tetrominoes
@@ -242,6 +243,8 @@ function freeze(){
             current = tetro[random][currentRotation];
             currentPosition = 4
             showNext();
+            addScore();
+            gameOver();
             draw();
            ////////////////// }
         }
@@ -325,6 +328,35 @@ function moveLeft(){
     draw();
   
 }
+
+function gameOver(){
+    if (current.some(index => squares[currentPosition+index].classList.contains('taken'))){
+        clearInterval(timer);
+        scoreDisplay.innerHTML = "Game Over";
+    }
+        //squares[firstRow].classList
+}
+
+function addScore(){
+    for (let i = 0; i<199; i = i+height){
+        const row= [i, i+1, i+2, i+3, i+4,i+5,i+6,i+7,i+8,i+9];
+
+        if(row.every(index=>squares[index].classList.contains('taken'))){
+            score+=10;
+            scoreDisplay.innerHTML = score;
+            row.forEach(index => {
+                squares[index].classList.remove('taken')
+                squares[index].classList.remove('tetro');
+            });
+            console.log(squares);
+            const removeSquare = squares.splice(i,height);
+            squares = removeSquare.concat(squares);
+            console.log(squares);
+            squares.forEach(cell => grid.appendChild(cell));
+        }
+    }
+}
+
 
 startBtn.addEventListener('click', () => {
     if  (timer) {
