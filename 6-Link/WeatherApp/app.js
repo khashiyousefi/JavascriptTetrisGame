@@ -19,7 +19,7 @@ window.addEventListener('load', ()=>{
                 //console.log(lat);
                 //console.log(position);
 
-                const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=058219d6e8c3db964a32f813afb04237`;
+                const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=`;
 
                 fetch(api)
                 .then(response =>{
